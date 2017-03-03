@@ -8,6 +8,10 @@ image_resource:
 
 inputs:
 - name: om-bosh-creds
+- name: this-repo
+
+params:
+  command:
 
 run:
   path: this-repo/tasks/bosh-start-stop.sh

@@ -39,6 +39,15 @@ resources:
 
 
 jobs:
+- name: manual-stop
+  plan:
+  - aggregate:
+    - get: this-repo
+    - get: om-bosh-creds
+  - task: start-jobs
+    file: this-repo/tasks/bosh-start-stop.yml
+    params:
+      command: stop
 - name: start
   plan:
   - aggregate:
